@@ -503,3 +503,24 @@ route();
 </script>
 </body>
 </html>
+// ADMIN PASSWORD PROTECTION
+const ADMIN_PASSWORD = "BHAKAR3030";
+let adminUnlocked = false;
+
+function checkAdminPassword() {
+    if (adminUnlocked) {
+        return true;
+    }
+
+    const password = prompt("Enter Admin Password:");
+
+    if (password === ADMIN_PASSWORD) {
+        adminUnlocked = true;
+        alert("Admin Access Granted!");
+        return true;
+    }
+
+    alert("Wrong Password! Access Denied.");
+    window.location.hash = "#/";
+    return false;
+}
